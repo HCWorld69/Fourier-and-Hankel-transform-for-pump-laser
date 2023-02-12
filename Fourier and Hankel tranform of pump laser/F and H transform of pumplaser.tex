@@ -1,0 +1,44 @@
+
+
+\documentclass{resume} % Use the custom resume.cls style
+ 
+\usepackage{amsmath}
+\usepackage{verbatim}
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry} % Document margins
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\name{Harsh Chan    } % Your name
+
+\begin{document}
+ 
+First, let's perform the Fourier transform with respect to 't' and find the expression for $\tilde{p}_1(r, \omega)$:
+
+$$\tilde{p}_1(r, \omega) = \mathcal{F} {p_1(r, t)}$$
+
+$$= \int_{-\infty}^{\infty} p_1(r, t) e^{-i \omega t} dt$$
+
+$$ = \frac{2 A_1}{\pi w_1^2} \exp \left(-\frac{2 r^2}{w_1^2}\right) \sum_{n=-\infty}^{\infty} e^{i(\omega_0 - \omega) n T_s} e^{-i (\omega - \omega_0) t_0}$$
+
+$$= \frac{2 A_1}{\pi w_1^2} \exp \left(-\frac{2 r^2}{w_1^2}\right) \sum_{n=-\infty}^{\infty} \delta_{\omega, \omega_0 + 2\pi n/T_s} e^{-i (\omega - \omega_0) t_0}$$
+
+where $\mathcal{F} {p_1(r, t)}$ is the Fourier transform of $p_1(r, t)$, and $\delta_{\omega, \omega_0 + 2\pi n/T_s}$ is the Kronecker delta function.
+
+Now, let's perform the Hankel transform with respect to 'r' and find the expression for $\tilde{p}_1(k, \omega)$:
+
+$$\tilde{p}_1(k, \omega) = \mathcal{H} {\tilde{p}_1(r, \omega)}$$
+
+$$ = \int_0^{\infty} \tilde{p}_1(r, \omega) J_0(kr) r dr$$
+
+$$ = \frac{2 A_1}{\pi w_1^2} \sum_{n=-\infty}^{\infty} \delta_{\omega, \omega_0 + 2\pi n/T_s} e^{-i (\omega - \omega_0) t_0} \int_0^{\infty} \exp \left(-\frac{2 r^2}{w_1^2}\right) J_0(kr) r dr$$
+
+$$ = \frac{2 A_1}{\pi w_1^2} \sum_{n=-\infty}^{\infty} \delta_{\omega, \omega_0 + 2\pi n/T_s} e^{-i (\omega - \omega_0) t_0} \frac{\sqrt{\pi} w_1}{2} J_1\left(\frac{kw_1}{\sqrt{2}}\right)$$
+
+where $\mathcal{H} {\tilde{p}_1(r, \omega)}$ is the Hankel transform of $\tilde{p}_1(r, \omega)$
+
+
+
+
+
+
+
+\end{document}
